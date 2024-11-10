@@ -27,23 +27,49 @@ window.addEventListener('scroll', function() {
 });
 
 
-// EmailJS
-emailjs.init("GBrS3tuOVHjUmci36"); 
+// Inicialização do EmailJS
+emailjs.init("GBrS3tuOVHjUmci36");
 
-
+// Obter o formulário
 const form = document.getElementById("contact-form");
 
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", async function(event) {
   event.preventDefault();
 
-  emailjs.sendForm('service_ep66agk', 'template_ka4jdfb', form)
-    .then(function(response) {
-      alert('Mensagem enviada com sucesso!');
-      console.log('Mensagem enviada', response.status, response.text);
-    }, function(error) {
-      alert('Erro ao enviar mensagem, tente novamente.');
-      console.error('Erro ao enviar mensagem', error);
-    });
+
+  const name = form.querySelector('input[name="name"]');
+  const email = form.querySelector('input[name="email"]');
+  const message = form.querySelector('textarea[name="mensagem"]');
+
+  if (!name.value || !email.value || !message.value) {
+    alert("Por favor, preencha todos os campos.");
+    return;
+  }
+
+
+  const loadingMessage = document.createElement('p');
+  loadingMessage.textContent = "Enviando... Aguarde.";
+  form.appendChild(loadingMessage);
+
+  try {
+    
+    const response = await emailjs.sendForm('service_ep66agk', 'template_ka4jdfb', form);
+
+  
+    alert('Mensagem enviada com sucesso!');
+    console.log('Mensagem enviada:', response.status, response.text);
+    
+    
+    form.reset();
+
+  } catch (error) {
+    
+    alert('Erro ao enviar mensagem, tente novamente.');
+    console.error('Erro ao enviar mensagem', error);
+  } finally {
+    
+    form.removeChild(loadingMessage);
+  }
 });
 
 
