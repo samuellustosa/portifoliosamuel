@@ -1,0 +1,628 @@
+:root {
+    --cor-primaria: #0D47A1; 
+    --cor-secundaria: #ffffff; 
+    --cor-preta: #333333; /* Usado para contraste */
+    --fundo-claro: #121212; 
+    --fundo-cinza: #1E1E1E; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos do corpo */
+.flex{
+    display: flex;
+}
+
+body {
+    background-color: var(--fundo-claro);
+    height: 100vh;
+    color: var(--cor-secundaria); 
+    font-family: "Days One", sans-serif; 
+}
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    top: -15px;
+}
+
+
+
+
+/* Navegação */
+header {
+    padding: 20px 4%;
+
+}
+
+header > .interface {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--fundo-claro);
+}
+
+header a {
+    text-decoration: none;
+    color: var(--cor-secundaria);
+    display: inline-block;
+}
+
+header nav.menu-desktop a:hover {
+    color: var(--cor-primaria);
+    transform: scale(1.08);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+header .btn-contato button {
+    color: var(--cor-secundaria);
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--cor-primaria);
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+header .btn-contato button:hover {
+    box-shadow: 0px 0px 8px var(--cor-primaria);
+}
+
+.logo-imagem {
+    width: 90px;
+    height: auto;
+    border-radius: 15%;
+    margin-top: -5px;
+}
+
+/* ESTILO DO MENU MOBILE */
+ .btn-abrir-menu i{
+    color: var(--cor-primaria);
+    font-size: 38px;
+
+ }
+ .menu-mobile{
+    background-color: var(--fundo-claro);
+    height: 100VH;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    width: 0%;
+    overflow: hidden;
+    transition: .4s;
+ }
+
+ .menu-mobile.abrir-menu{
+    width: 70%;
+ }
+
+ .menu-mobile.abrir-menu ~ .overlay-menu{
+    display: block;
+ }
+
+ .menu-mobile .btn-fechar i{
+    color: var(--cor-primaria);
+    font-size: 30px;
+ }
+ .menu-mobile .btn-fechar{
+    padding: 20px 5%;
+ }
+
+
+ .menu-mobile nav ul{
+    text-align: right;
+ }
+
+ .menu-mobile nav ul li a{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 8%;
+    display: block;
+ }
+
+ .menu-mobile nav ul li a:hover{
+    background-color: var(--cor-primaria);
+    color: #000;
+ }
+
+ .overlay-menu{
+    background-color: #000000cc;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88888;
+    display: none;
+ }
+
+
+
+
+/* TOPO DO SITE */
+.header {
+    padding: 40px 4%;
+}
+.header .flex {
+    align-items: center;  
+    justify-content: center;
+    padding: 120px 0;
+}
+.texto-central h1 {
+    color: var(--cor-primaria);
+    font-size: 50px;
+    letter-spacing: -3px;
+    padding-bottom: 20px;
+}
+
+.texto-central {
+    max-width: 60%;
+    font-size: 30px;
+    padding: 0 20px;
+}
+.texto-central p {
+    color: #c4b4b4;
+    font-size: 22px;
+}
+
+.imagem-direita {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 20px;  /*espaço entre a imagem e o texto */
+}
+
+.buttom-header {
+    padding-top: 50px;
+    font-size: 18px;
+    justify-content: center;
+}
+
+.buttom-header a {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: var(--cor-primaria);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.buttom-header a:hover {
+    box-shadow: 0px 0px 8px var(--cor-primaria);
+    transform: scale(1.08);
+}
+
+
+
+/* Seção Habilidades */
+.habilidades-conteudo {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: var(--fundo-cinza);
+    padding-top: 60px;
+    box-shadow: 0 0 40px 10px #00000063;
+}
+
+.habilidades-conteudo h2 {
+    font-size: 36px;
+    color: var(--cor-primaria);
+    margin-bottom: 35px;
+    padding: 20px;
+    letter-spacing: 1.5px;
+}
+
+.habilidades-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.habilidade-item {
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    padding: 30px;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.habilidade-item:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+}
+
+.habilidade-item p {
+    font-size: 16px;
+    color: var(--cor-secundaria);
+    margin-top: 15px;
+    transition: color 0.3s;
+}
+
+.habilidade-imagem {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.habilidade-imagem:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo do Sobre */
+.Sobre {
+    padding: 200px 4%;
+    background-color: #181818;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.img-sobre img {
+    width: 220px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.txt-sobre {
+    max-width: 600px;
+    color: var(--cor-secundaria);
+}
+
+.txt-sobre h2 {
+    font-size: 40px;
+    color: var(--cor-secundaria);
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.txt-sobre span {
+    color: var(--cor-primaria);
+    display: block;
+}
+
+.txt-sobre p {
+    max-width: 20px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 10px;
+    padding-bottom: 15px;
+}
+
+.txt-sobre .btn-social button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 0;
+    background-color: var(--cor-primaria);
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    margin: 0 6px;
+}
+
+.txt-sobre .btn-social button:hover {
+    box-shadow: 0px 0px 8px var(--cor-primaria);
+    transform: scale(1.08);
+    transition: .2s;
+}
+
+/* Seção Portfólio */
+.portifolio {
+    padding: 80px 4%;
+    box-shadow: 0 0 40px 10px #00000063;
+}
+
+.portifolio h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--cor-primaria);
+    margin-bottom: 40px;
+}
+
+.portifolio .flex {
+    justify-content: center;
+    gap: 70px;
+}
+
+.img-port {
+    width: 230px;
+    height: 330px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+}
+
+.img-port:hover {
+    background-position: 100% 100%;
+}
+
+.img-port img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000007a;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    opacity: 0;
+    transition: .5s;
+}
+.overlay p {
+    transform: translateX(-50%);
+    position: absolute;
+    color: #ffffff; 
+    font-size: 16px; 
+    text-align: center; 
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+.btn-overlay button {
+    position: absolute;
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    color: var(--cor-secundaria);
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--cor-primaria);
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* SEÇÃO CONTATO */
+.contato-conteudo {
+    padding: 60px 4%;
+    box-shadow: 0 0 40px 10px #00000063;
+}
+
+.contato-conteudo h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.contato-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: var(--cor-secundaria);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.form-group button {
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    box-shadow: 0px 0px 8px var(--cor-primaria);
+    transform: scale(1.08);
+    transition: .2s;
+
+}
+
+
+/* RODAPÉ */
+.footer {
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    padding-top: 20px;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-line {
+    border: 0;
+    border-top: 2px solid var(--cor-primaria);
+    width: 100%; 
+    margin: 20px 0; 
+}
+
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.footer-social button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    background-color: var(--cor-primaria);
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    margin: 0 6px;
+}
+.footer-social button:hover{
+    box-shadow: 0px 0px 8px var(--cor-primaria);
+    transform: scale(1.08);
+    transition: .2s;
+}
+
+
+.footer-bottom {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #B0BEC5; 
+}
+
+
+
+/* RESPONSIVIDADE DO SITE */
+
+@media (min-width: 991px) {
+    .btn-abrir-menu {
+        display: none;
+    }
+}
+@media screen and (max-width: 991px){
+    /* FUNÇPÃO GERAL */
+    .flex{
+        flex-direction: column-reverse;
+    }
+    /* meu cabelçalho */
+    .menu-desktop, .btn-contato, .buttom-header{
+        display: none;
+    }
+
+    /* TOTPO DO SITE */
+    .header {
+        padding: 0px 8%;
+    }
+    .texto-central h1 {
+        font-size: 42px;
+        line-height: 42px;
+        letter-spacing: 1px;
+        padding-bottom: 20px;
+    }
+    .texto-central {
+        max-width: 100%;
+        font-size: 20px;
+    }
+
+    /* SOBRE-MIM */
+    .Sobre {
+        padding: 200px 8%;
+        background-color: #181818;
+    }
+    .txt-sobre h2 {
+        font-size: 35px;
+        color: var(--cor-secundaria);
+        line-height: 35px;
+        margin-bottom: 30px;
+    }
+    .img-sobre img {
+        width: 100%;
+        max-width: 300px;
+    }
+    .btn-social{
+        text-align: center;
+    }
+
+    /* PORTIFOLIO */
+    .portifolio {
+        padding: 80px 8%;
+    }
+    .img-port {
+        width: 100%;
+        max-width: 360px;
+        height: 330px;
+        background-size: cover;
+        background-position: 100% 0%;
+        transition: 8s;
+        cursor: pointer;
+        border-radius: 40px;
+        position: relative;
+    }
+
+    /* CONTATO */
+    .contato-conteudo {
+        padding: 60px 5%;
+    }
+    .contato-conteudo h2{
+        font-size: 55px;
+    }
+
+    /* RODAPÉ */
+    .footer-content {
+        flex-direction:column;
+
+    }
+
+    .footer-logo {
+        padding-bottom: 20px;
+    }
+    .footer-bottom {
+        font-size: 11px;
+    }
+    
+
+}
